@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_23_183343) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_081204) do
   create_table "appointments", force: :cascade do |t|
-    t.datetime "when"
+    t.datetime "date"
     t.integer "barber_id"
     t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id"
+  end
+
+  create_table "barber_services", force: :cascade do |t|
+    t.integer "barber_id"
+    t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,13 +33,57 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_23_183343) do
     t.float "wage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "station"
   end
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
+    t.integer "barber_id"
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_services", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "service_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "price"
+    t.float "purchase_price"
+    t.boolean "active"
+    t.integer "current_stock"
+    t.integer "quantity_sold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
