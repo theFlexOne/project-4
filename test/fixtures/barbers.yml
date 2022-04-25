@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_date: 2022-04-24
+  wage: 1.5
+  station: 1
+
+two:
+  name: MyString
+  start_date: 2022-04-24
+  wage: 1.5
+  station: 1
