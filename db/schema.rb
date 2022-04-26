@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_26_065408) do
   create_table "appointments", force: :cascade do |t|
     t.datetime "date", null: false
     t.integer "client_id"
     t.integer "barber_id"
     t.boolean "open", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "barber_services", force: :cascade do |t|
+    t.integer "barber_id"
+    t.integer "service_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +60,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
     t.string "city", limit: 25
     t.string "state", limit: 2
     t.string "zip_code", limit: 5
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_services", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "service_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
