@@ -1,3 +1,3 @@
 class BarberSerializer < ActiveModel::Serializer
-  attributes :id, :name, :start_date, :wage, :station
+  attributes :id, :name, :station
 end

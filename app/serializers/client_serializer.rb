@@ -1,3 +1,3 @@
 class ClientSerializer < ActiveModel::Serializer
-  attributes :id, :name, :regular_barber
+  attributes :id, :name
 end
