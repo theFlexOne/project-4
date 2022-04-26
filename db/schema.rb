@@ -12,18 +12,18 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
   create_table "appointments", force: :cascade do |t|
-    t.datetime "date"
+    t.datetime "date", null: false
     t.integer "client_id"
     t.integer "barber_id"
-    t.boolean "open"
+    t.boolean "open", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "barbers", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.date "start_date"
-    t.float "wage"
+    t.float "wage", null: false
     t.integer "station"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,15 +39,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.integer "regular_barber"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "contact_infos", force: :cascade do |t|
     t.integer "client_id", null: false
-    t.string "name", limit: 50, null: false
     t.string "email", limit: 50
     t.string "street_address", limit: 100
     t.string "secondary_address", limit: 100
@@ -59,8 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "client_id"
-    t.integer "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
   create_table "orders_products", id: false, force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "product_id", null: false
-    t.integer "quantity"
+    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_orders_products_on_order_id"
@@ -78,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
   create_table "orders_services", id: false, force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "service_id", null: false
-    t.integer "quantity"
+    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_orders_services_on_order_id"
@@ -86,20 +82,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_24_202334) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", limit: 25
+    t.text "description", limit: 255
     t.decimal "price", precision: 5, scale: 2
-    t.boolean "active"
-    t.integer "current_stock"
-    t.integer "quantity_sold"
+    t.boolean "active", default: true, null: false
+    t.integer "current_stock", default: 0, null: false
+    t.integer "quantity_sold", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.decimal "price", precision: 5, scale: 2
-    t.boolean "active"
+    t.string "name", null: false
+    t.decimal "price", precision: 5, scale: 2, null: false
+    t.boolean "active", default: true, null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
