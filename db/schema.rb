@@ -10,20 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_26_065408) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_26_191821) do
   create_table "appointments", force: :cascade do |t|
     t.datetime "date", null: false
     t.integer "client_id"
     t.integer "barber_id"
     t.boolean "open", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "barber_services", force: :cascade do |t|
-    t.integer "barber_id"
-    t.integer "service_id"
-    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,15 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_065408) do
     t.integer "station"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "barbers_services", id: false, force: :cascade do |t|
-    t.integer "barber_id", null: false
-    t.integer "service_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["barber_id"], name: "index_barbers_services_on_barber_id"
-    t.index ["service_id"], name: "index_barbers_services_on_service_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -64,45 +47,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_065408) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "order_products", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "product_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "order_services", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "service_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders_products", id: false, force: :cascade do |t|
+  create_table "orders_products", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "product_id", null: false
-    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_orders_products_on_order_id"
     t.index ["product_id"], name: "index_orders_products_on_product_id"
-  end
-
-  create_table "orders_services", id: false, force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.integer "service_id", null: false
-    t.integer "quantity", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_orders_services_on_order_id"
-    t.index ["service_id"], name: "index_orders_services_on_service_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -120,9 +76,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_065408) do
     t.string "name", null: false
     t.decimal "price", precision: 5, scale: 2, null: false
     t.boolean "active", default: true, null: false
-    t.text "description"
+    t.text "description", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orders_products", "orders"
+  add_foreign_key "orders_products", "products"
 end
