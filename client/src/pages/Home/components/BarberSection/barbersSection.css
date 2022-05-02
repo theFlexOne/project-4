@@ -1,0 +1,38 @@
+.barbers-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 450px;
+  font-family: "Yanone Kaffeesatz";
+  color: #c42121;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.barbers-section h2 {
+  font-size: 2.5rem;
+  letter-spacing: 2.75px;
+}
+
+.barber-cards {
+  display: flex;
+  /* gap: 0.5em; */
+}
+
+.barber-cards h3 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.barber-cards > :first-child {
+  margin-left: 3rem;
+}
+
+.barber-cards > :last-child {
+  margin-right: 3rem;
+}
+
+.barber-cards > :not(:last-of-type) {
+  margin-right: auto;
+}

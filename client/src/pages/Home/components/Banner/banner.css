@@ -1,0 +1,106 @@
+.Home .banner-container {
+  /* background-image: url(#banner-image); */
+  background-image: url(/src/assets/images/banner-1-dark.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Home .banner-logo-text {
+  /* margin-left: 4rem; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.Home .banner-logo-text #scissors,
+.Home .banner-logo-text #circle-stache {
+  transition: transform 2s;
+  transform-origin: center;
+}
+
+.Home .banner-logo-text #stache {
+  transition: 0.75s 2s;
+  transform-origin: bottom;
+}
+
+/* .Home .logo-wrapper.clicked #scissors {
+  animation-name: rotate-scissors 2s finished;
+}
+
+.Home .logo-wrapper.clicked #circle-stache {
+  animation-name: rotate-circle-stache 2s finished;
+}
+
+.Home .logo-wrapper.clicked #stache {
+  animation-name: wiggle;
+} */
+
+@keyframes rotate-circle-stache {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotate-scissors {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  70% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.banner-container .welcome {
+  font-family: "Cookie", cursive;
+  color: #fff;
+  text-align: left;
+  max-width: 400px;
+  margin-right: auto;
+}
+
+.banner-container .welcome-header {
+  font-size: 5rem;
+  margin: 0;
+}
+
+.banner-container .welcome-message {
+  font-size: 2rem;
+}
+
+.banner-container .welcome button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-family: "Moli", cursive;
+  background-color: #333;
+  color: #fff;
+  border: 2.5px solid #c42121;
+  border-radius: 12px;
+}

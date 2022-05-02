@@ -1,0 +1,17 @@
+.gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+}
+
+.gallery-images {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.gallery-images img {
+  width: 250px;
+}
