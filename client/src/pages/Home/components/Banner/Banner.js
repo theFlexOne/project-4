@@ -8,13 +8,13 @@ const Banner = () => {
       <div className="welcome">
         <p className="welcome-header">Welcome!</p>
         <p className="welcome-message">
-          Click below to book your appointment now!
+          Click below to book your appointment today!
         </p>
         <button
           className="book-appointment"
           onClick={(e) => console.log("yup")}
         >
-          Book Appointment Now!
+          Book Appointment!
         </button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :barbers_services
   resources :orders_products
   resources :products
   resources :services

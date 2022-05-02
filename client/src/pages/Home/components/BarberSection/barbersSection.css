@@ -15,24 +15,17 @@
   letter-spacing: 2.75px;
 }
 
-.barber-cards {
+.barbers {
   display: flex;
-  /* gap: 0.5em; */
+  gap: 1em;
 }
 
-.barber-cards h3 {
+.barbers h3 {
   font-size: 1.5rem;
   letter-spacing: 2px;
 }
 
-.barber-cards > :first-child {
-  margin-left: 3rem;
-}
-
-.barber-cards > :last-child {
-  margin-right: 3rem;
-}
-
-.barber-cards > :not(:last-of-type) {
-  margin-right: auto;
+.barber {
+  border: 1px solid #c42121;
+  background-color: #1f1b1b;
 }

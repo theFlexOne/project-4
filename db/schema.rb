@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_26_191821) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_155442) do
   create_table "appointments", force: :cascade do |t|
     t.datetime "date", null: false
     t.integer "client_id"
@@ -25,6 +25,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_191821) do
     t.date "start_date"
     t.float "wage", null: false
     t.integer "station"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "barbers_services", force: :cascade do |t|
+    t.integer "barber_id"
+    t.integer "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_26_191821) do
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "client_id"
   end
 
   create_table "orders_products", force: :cascade do |t|

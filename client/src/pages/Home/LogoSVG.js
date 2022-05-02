@@ -21,6 +21,9 @@ const setupStacheWiggleAnimation = (ref) => {
   stache.addEventListener("click", () => {
     stache.style.animation = "wiggle 1s";
   });
+  stache.addEventListener("animationend", () => {
+    stache.style.animation = "";
+  });
 };
 
 const LogoSVG = () => {
