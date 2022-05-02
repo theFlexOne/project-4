@@ -1,6 +1,6 @@
-.Home .banner-container {
+.home .banner-container {
   /* background-image: url(#banner-image); */
-  background-image: url(/src/assets/images/banner-1-dark.png);
+  background-image: url(../../../../assets/images/banner-1-dark.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.Home .banner-logo-text {
+.home .banner-logo-text {
   /* margin-left: 4rem; */
   margin: 0 auto;
   display: flex;
@@ -20,26 +20,30 @@
   gap: 0.5em;
 }
 
-.Home .banner-logo-text #scissors,
-.Home .banner-logo-text #circle-stache {
+.home .banner-logo-text #scissors,
+.home .banner-logo-text #circle-stache {
   transition: transform 2s;
   transform-origin: center;
 }
 
-.Home .banner-logo-text #stache {
+.home .banner-logo-text #stache {
   transition: 0.75s 2s;
   transform-origin: bottom;
 }
 
-/* .Home .logo-wrapper.clicked #scissors {
+.home .banner-logo-text #stache:hover {
+  cursor: pointer;
+}
+
+/* .home .logo-wrapper.clicked #scissors {
   animation-name: rotate-scissors 2s finished;
 }
 
-.Home .logo-wrapper.clicked #circle-stache {
+.home .logo-wrapper.clicked #circle-stache {
   animation-name: rotate-circle-stache 2s finished;
 }
 
-.Home .logo-wrapper.clicked #stache {
+.home .logo-wrapper.clicked #stache {
   animation-name: wiggle;
 } */
 
@@ -97,10 +101,32 @@
   display: block;
   margin: 0 auto;
   padding: 0.5rem 1rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-family: "Moli", cursive;
-  background-color: #333;
+  font-weight: bold;
+  background-color: #c42121;
   color: #fff;
-  border: 2.5px solid #c42121;
+  border: 2.5px solid #1f1b1b;
   border-radius: 12px;
+  /* box-shadow: 5 5 2px rgba(0, 0, 0); */
+}
+
+
+{
+  #fff
+  #eee
+  #ddd
+  #ccc
+  #bbb
+  #aaa
+  #999
+  #888
+  #777
+  #666
+  #555
+  #444
+  #333
+  #222
+  #111
+  #000
 }
