@@ -1,17 +1,24 @@
 import "./home.css";
 import BarbersSection from "./components/BarberSection/BarbersSection";
 import Banner from "./components/Banner/Banner";
-import GallerySection from "./components/GallerySection/GallerySection";
+// import GallerySection from "./components/GallerySection/GallerySection";
+import ReviewsSection from "./components/ReviewsSection/ReviewsSection";
 
-const Home = () => {
+const Home = ({ setOpenBookingModal }) => {
   return (
-    <div className="home">
-      <Banner />
+    <main className="home">
+      <Banner setOpenBookingModal={setOpenBookingModal} />
       <BarbersSection />
-      <GallerySection />
-      {/* <div className="gallery-section"></div> */}
-      <div className="services-section"></div>
-    </div>
+      <ReviewsSection />
+      <div>
+        <br />
+        <br />
+        <p>location & contact info here</p>
+        <br />
+        <br />
+      </div>
+      {/* <div className="services-section"></div> */}
+    </main>
   );
 };
 

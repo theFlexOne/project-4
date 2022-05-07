@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_155442) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_192358) do
   create_table "appointments", force: :cascade do |t|
     t.datetime "date", null: false
     t.integer "client_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_155442) do
     t.integer "station"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img_path", default: "../../assets/default_profile_image.png"
   end
 
   create_table "barbers_services", force: :cascade do |t|
@@ -72,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_155442) do
   create_table "products", force: :cascade do |t|
     t.string "name", limit: 25
     t.text "description", limit: 255
-    t.decimal "price", precision: 5, scale: 2
+    t.float "price", null: false
     t.boolean "active", default: true, null: false
     t.integer "current_stock", default: 0, null: false
     t.integer "quantity_sold", default: 0, null: false
@@ -82,7 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_155442) do
 
   create_table "services", force: :cascade do |t|
     t.string "name", null: false
-    t.decimal "price", precision: 5, scale: 2, null: false
+    t.float "price", null: false
     t.boolean "active", default: true, null: false
     t.text "description", default: "", null: false
     t.datetime "created_at", null: false

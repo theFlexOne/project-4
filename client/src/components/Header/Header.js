@@ -1,15 +1,17 @@
 import HeaderLogoSVG from "./HeaderLogoSVG";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header>
       <HeaderLogoSVG />
       <span className="links">
-        <a href="#">BARBERS</a>
+        <a href="#">ABOUT</a>
         <a href="#">SERVICES</a>
         <a href="#">SHOP</a>
-        <a href="#">BOOK APPOINTMENT</a>
+        <Link to="/appointments">BOOK APPOINTMENT</Link>
         <ShoppingCartOutlinedIcon fontSize="large" className="cart-icon" />
       </span>
     </header>

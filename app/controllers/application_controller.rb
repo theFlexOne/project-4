@@ -1,4 +1,5 @@
-class ApplicationController < ActionController::API
-  # rescue_from ActiveRecord::RecordNotFound
-  # render json: {}
+class ApplicationController < ActionController::Base
+  # rescue_with ActiveRecord::RecordNotFound do
+  #   render json: { message: "ERROR" }, status: :unprocessable_entity
+  # end
 end
