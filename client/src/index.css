@@ -1,14 +1,18 @@
 :root {
-  --primary-color: #CF1717;
-  --primary-color-dark: #791B1B
-  --secondary-color: #231F1F;
-
+  --primary-color: #cf1717;
+  --primary-color-dark: #791b1b;
+  --secondary-color: #231f1f;
 }
 
-body {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: "Yanone Kaffeesatz", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

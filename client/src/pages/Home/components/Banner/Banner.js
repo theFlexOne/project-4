@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import LogoSVG from "../../LogoSVG";
 import "./banner.css";
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
-    <div className="banner-container">
+    <section className="banner-container">
       <LogoSVG />
       <div className="welcome">
         <p className="welcome-header">Welcome!</p>
@@ -12,12 +14,12 @@ const Banner = () => {
         </p>
         <button
           className="book-appointment"
-          onClick={(e) => console.log("yup")}
+          onClick={() => navigate("/appointments")}
         >
           Book Appointment!
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,6 +1,6 @@
 .home .banner-container {
   /* background-image: url(#banner-image); */
-  background-image: url(../../../../assets/images/banner-1-dark.png);
+  background-image: url(../../../../assets/images/banner-1-darker.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,8 +20,11 @@
   gap: 0.5em;
 }
 
+.home .banner-logo-text > * {
+}
 .home .banner-logo-text #scissors,
 .home .banner-logo-text #circle-stache {
+  cursor: pointer;
   transition: transform 2s;
   transform-origin: center;
 }
@@ -30,22 +33,6 @@
   transition: 0.75s 2s;
   transform-origin: bottom;
 }
-
-.home .banner-logo-text #stache:hover {
-  cursor: pointer;
-}
-
-/* .home .logo-wrapper.clicked #scissors {
-  animation-name: rotate-scissors 2s finished;
-}
-
-.home .logo-wrapper.clicked #circle-stache {
-  animation-name: rotate-circle-stache 2s finished;
-}
-
-.home .logo-wrapper.clicked #stache {
-  animation-name: wiggle;
-} */
 
 @keyframes rotate-circle-stache {
   from {
@@ -65,7 +52,7 @@
   }
 }
 
-@keyframes wiggle {
+@keyframes stache-animation {
   0% {
     transform: rotate(0deg);
   }
@@ -86,6 +73,9 @@
   text-align: left;
   max-width: 400px;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
 }
 
 .banner-container .welcome-header {
@@ -104,29 +94,9 @@
   font-size: 2rem;
   font-family: "Moli", cursive;
   font-weight: bold;
-  background-color: #c42121;
+  background-color: #39ac22;
   color: #fff;
   border: 2.5px solid #1f1b1b;
   border-radius: 12px;
   /* box-shadow: 5 5 2px rgba(0, 0, 0); */
-}
-
-
-{
-  #fff
-  #eee
-  #ddd
-  #ccc
-  #bbb
-  #aaa
-  #999
-  #888
-  #777
-  #666
-  #555
-  #444
-  #333
-  #222
-  #111
-  #000
 }
