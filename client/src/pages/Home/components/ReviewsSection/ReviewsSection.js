@@ -5,12 +5,12 @@ import r3 from "../../../../assets/images/review-images/booksy-reviews-3.jpg";
 import r4 from "../../../../assets/images/review-images/booksy-reviews-4.jpg";
 import ImageCarousel from "../../../../components/ImageCarousel/ImageCarousel";
 
-const reviewImages = [r1, r2, r3, r4];
+const REVIEW_IMAGES = [r1, r2, r3, r4];
 
 const ReviewsSection = () => {
   return (
     <section className="reviews">
-      <ImageCarousel images={reviewImages} />
+      <ImageCarousel images={REVIEW_IMAGES} />
     </section>
   );
 };

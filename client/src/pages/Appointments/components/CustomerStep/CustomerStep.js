@@ -1,6 +1,22 @@
 import { faker } from "@faker-js/faker";
+import { useEffect, useState } from "react";
 
-const CustomerStep = ({ customer, updateCustomer }) => {
+const CustomerStep = ({ formDataRef }) => {
+  const [firstName, setFirstName] = useState(
+    formDataRef.current.customer.firstName
+  );
+  const [lastName, setLastName] = useState(
+    formDataRef.current.customer.lastName
+  );
+  const [email, setEmail] = useState(formDataRef.current.customer.email);
+  const [phoneNumber, setPhoneNumber] = useState(
+    formDataRef.current.customer.phoneNumber
+  );
+
+  useEffect(() => {
+    formDataRef.current.customer = { firstName, lastName, email, phoneNumber };
+  });
+
   return (
     <div className="customer step-3">
       <div>
@@ -11,8 +27,8 @@ const CustomerStep = ({ customer, updateCustomer }) => {
           id="firstName"
           className="first-name"
           placeholder={faker.name.firstName()}
-          value={customer.firstName}
-          onChange={(e) => updateCustomer("firstName", e.target.value)}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
         />
       </div>
       <div>
@@ -23,8 +39,8 @@ const CustomerStep = ({ customer, updateCustomer }) => {
           id="lastName"
           className="last-name"
           placeholder="Doe"
-          value={customer.lastName}
-          onChange={(e) => updateCustomer("lastName", e.target.value)}
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
         />
       </div>
       <div>
@@ -35,8 +51,8 @@ const CustomerStep = ({ customer, updateCustomer }) => {
           id="email"
           className="email"
           placeholder="example@email.com"
-          value={customer.email}
-          onChange={(e) => updateCustomer("email", e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
@@ -47,8 +63,8 @@ const CustomerStep = ({ customer, updateCustomer }) => {
           id="phoneNumber"
           className="phone-number"
           placeholder="(320) 555-5555"
-          value={customer.phoneNumber}
-          onChange={(e) => updateCustomer("phoneNumber", e.target.value)}
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
         />
       </div>
     </div>

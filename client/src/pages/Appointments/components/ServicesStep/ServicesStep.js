@@ -1,6 +1,7 @@
 import { v4 as uuid } from "uuid";
 import "./servicesStep.css";
 import ClearIcon from "@mui/icons-material/Clear";
+import { useEffect, useState } from "react";
 
 // const addService = (e) => {
 //   console.log(`e.target`, e.target);
@@ -17,24 +18,22 @@ import ClearIcon from "@mui/icons-material/Clear";
 //   updateSelectedServices(servicesCopy);
 // };
 
-const ServicesStep = ({
-  services,
-  selectedServices,
-  updateSelectedServices,
-}) => {
+const ServicesStep = ({ services, formDataRef }) => {
+  const [servicesIds, setServicesIds] = useState(formDataRef.current.services);
   const Service = (s) => {
     const handleButtonClick = () => {
-      const selectedServicesCopy = [...selectedServices];
+      const selectedServicesCopy = [...servicesIds];
       const idx = selectedServicesCopy.indexOf(s.id);
       if (idx < 0) {
         selectedServicesCopy.push(s.id);
       } else {
         selectedServicesCopy.splice(idx);
       }
-      updateSelectedServices(selectedServicesCopy);
+      formDataRef.current.services = selectedServicesCopy;
+      setServicesIds(selectedServicesCopy);
     };
 
-    const checked = selectedServices.find((id) => id === s.id) ? true : false;
+    const checked = servicesIds.find((id) => id === s.id) ? true : false;
 
     return (
       <div key={s.id} className="service">

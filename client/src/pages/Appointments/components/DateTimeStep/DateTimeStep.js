@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./dateTimeStep.css";
 
-const DateTimeStep = ({ availableTimeSlots, dateTime, updateDateTime }) => {
-  console.log(`availableTimeSlots`, availableTimeSlots);
-  const updateDate = (date) => {
-    const dateTimeCopy = { ...dateTime };
-    dateTimeCopy.date = date;
-    updateDateTime(dateTimeCopy);
-  };
-  const updateTime = (time) => {
-    const dateTimeCopy = { ...dateTime };
-    dateTimeCopy.time = time;
-    updateDateTime(dateTimeCopy);
-  };
+const DateTimeStep = ({ availableTimeSlots, formDataRef }) => {
+  const [date, setDate] = useState(formDataRef.current.dateTime.date);
+  const [time, setTime] = useState(
+    formDataRef.current.dateTime.time || availableTimeSlots[0]
+  );
+
+  // const handleBlur = (label) => {
+  //   return (e) => {
+  //     const dateTimeCopy = { ...dateTime };
+  //     dateTimeCopy[label] = e.target.value;
+  //     updateDateTime(dateTimeCopy);
+  //   };
+  // };
+
+  // useEffect(() => {
+  //   console.log(timeRef.current);
+  //   timeRef.current?.focus();
+  // });
+
+  useEffect(() => {
+    formDataRef.current.dateTime = { date, time };
+  }, [date, formDataRef, time]);
+
   return (
     <div className="date-time-container">
       <div>
@@ -21,25 +32,28 @@ const DateTimeStep = ({ availableTimeSlots, dateTime, updateDateTime }) => {
           type="date"
           name="date"
           id="date"
-          onChange={(e) => updateDate(e.target.value)}
-          value={dateTime.date || ""}
+          value={date || ""}
+          onChange={(e) => setDate(e.target.value)}
+          // onBlur={handleBlur("date")}
+          // onClick={(e) => e.target.focus()}
         />
       </div>
-      {dateTime.date && (
+      {date && (
         <div>
           <p>Please, pick an appointment time:</p>
           <select
             name="available-times"
             id="available-times"
-            onChange={(e) => updateTime(e.target.value)}
+            value={time || availableTimeSlots[0]}
+            onChange={(e) => setTime(e.target.value)}
+            // onBlur={handleBlur("time")}
+            // onClick={(e) => e.target.focus()}
           >
-            {availableTimeSlots.map((t) => {
-              return (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              );
-            })}
+            {availableTimeSlots.map((timeSlot) => (
+              <option key={timeSlot} value={timeSlot}>
+                {timeSlot}
+              </option>
+            ))}
           </select>
         </div>
       )}
